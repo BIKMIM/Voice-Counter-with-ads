@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Voice_Counter</string>
+    <string name="RESET">RESET</string>
+    <string name="ZERO">0</string>
+    <string name="Back">뒤로가기</string>
+    <string name="Mute">음소거</string>
+    <string name="Minus">Minus</string>
+    <string name="Plus">Plus</string>
+    <string name="PushUpImg">푸시업 이미지</string>
+    <string name="PhoneImg">핸드폰 이미지</string>
+    <string name="PianoImg">피아노 이미지</string>
+    <string name="START">START</string>
+    <string name="Help">도움말</string>
+    <string name="Description">목소리로 카운트 해 줍니다.</string>
+    <string name="Title">Voice Counter</string>
+</resources>
