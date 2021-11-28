@@ -13,7 +13,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import com.bikmim.voice_counter.databinding.ActivityMainBinding
@@ -25,10 +24,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
 
     // 전역 변수로 바인딩 객체 선언
-    private var mBinding: ActivityMainBinding? = null
+    private lateinit var mBinding: ActivityMainBinding
 
-    // 매번 null 체크를 할 필요 없이 편의성을 위해 바인딩 변수 재 선언
-    private val binding get() = mBinding!!
+
 
     private lateinit var mAdView : AdView
 
@@ -910,7 +908,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
         // getRoot 메서드로 레이아웃 내부의 최상위 위치 뷰의
         // 인스턴스를 활용하여 생성된 뷰를 액티비티에 표시 합니다.
-        setContentView(binding.root)
+        setContentView(mBinding.root)
+
+        val plusBtn = mBinding.ivPlusBtn // 카운트 + 버튼
+        val minusBtn = mBinding.ivMinusBtn // 카운트 - 버튼
+        val resetBtn = mBinding.resetBtn // 리셋 버튼
 
         // 이제부터 binding 바인딩 변수를 활용하여 마음 껏 xml 파일 내의 뷰 id 접근이 가능해집니다.
         // 뷰 id도 파스칼케이스 + 카멜케이스의 네이밍규칙 적용으로 인해서
@@ -921,6 +923,24 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         MobileAds.initialize(this) {}
 
         loadBannerAd()   // 구글 애드몹 함수 호출
+
+        // 리셋 버튼 누르면 숫자 0 으로 리셋
+        resetBtn.setOnClickListener {
+            pCount = 0
+            mBinding.tvCount.text = pCount.toString()
+        }
+
+        // + 버튼 누르면 숫자 1 더하기
+        plusBtn.setOnClickListener {
+            pCount += 1
+            mBinding.tvCount.text = pCount.toString()
+        }
+
+        // - 버튼 누르면 숫자 1 빼기
+        minusBtn.setOnClickListener {
+            pCount -= 1
+            mBinding.tvCount.text = pCount.toString()
+        }
 
         // 센서 매니저 호출
         this.mysensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -937,7 +957,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
         // 좌우로 Intent 하기 위한 함수.
         // 웰컴 페이지로 전환
-        fun backButtonWelcome(v: View?) {
+        fun backButtonWelcome() {
             this.finish()
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
@@ -946,8 +966,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
 
         // WelcomeActivity로 이동
-        binding.ivLeft1.setOnClickListener {
-            backButtonWelcome(v = null)
+        mBinding.ivLeft1.setOnClickListener {
+            backButtonWelcome()
         }
 
 
@@ -1080,7 +1100,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     private fun loadBannerAd() {
         MobileAds.initialize(this) {}
 
-        mAdView = binding.adView
+        mAdView = mBinding.adView
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
 
@@ -1119,28 +1139,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     // 센서값이 변했을때의 함수
     override fun onSensorChanged(event: SensorEvent?) {
 
-        val plusBtn = binding.ivPlusBtn // 카운트 + 버튼
-        val minusBtn = binding.ivMinusBtn // 카운트 - 버튼
-        val resetBtn = binding.resetBtn // 리셋 버튼
-        val toggleBtn = binding.toggleButton1 // 토글 버튼
 
-        // 리셋 버튼 누르면 숫자 0 으로 리셋
-        resetBtn.setOnClickListener {
-            pCount = 0
-            binding.tvCount.text = pCount.toString()
-        }
+        val toggleBtn = mBinding.toggleButton1 // 토글 버튼
 
-        // + 버튼 누르면 숫자 1 더하기
-        plusBtn.setOnClickListener {
-            pCount += 1
-            binding.tvCount.text = pCount.toString()
-        }
 
-        // - 버튼 누르면 숫자 1 빼기
-        minusBtn.setOnClickListener {
-            pCount -= 1
-            binding.tvCount.text = pCount.toString()
-        }
 
 
         // 토글 버튼 눌러서 ON/OFF 상태 확인 및 반환
@@ -1153,7 +1155,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
         if (x2Int == 0) {  // 센서값이 근접값이면
             pCount += 1 // 카운트에 1을 더하고
-            binding.tvCount.text = pCount.toString() // Int 를 String 으로 바꿔서 화면에 표시
+            mBinding.tvCount.text = pCount.toString() // Int 를 String 으로 바꿔서 화면에 표시
 
             // 토글버튼이 false 면 soundPool 볼륨을 0으로 설정.
             if (!soundtoggle) {
