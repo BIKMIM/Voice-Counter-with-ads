@@ -12,26 +12,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="88dp"
         android:layout_marginEnd="12dp"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="10sp"
+        android:layout_marginBottom="28dp"
         android:autoSizeMaxTextSize="14sp"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/poppins_regular"
         android:text="폰 윗면 근접센서 5cm 이내로\n가까워지면 카운트 됩니다."
         android:textAlignment="viewStart"
         android:textColor="#B3000000"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:autoSizeMaxTextSize="14sp"
         android:autoSizeMinTextSize="10sp"
         android:autoSizeTextType="uniform"
@@ -40,7 +40,7 @@
         android:textColor="#B3000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
@@ -48,8 +48,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
         android:autoSizeMaxTextSize="14sp"
         android:autoSizeMinTextSize="10sp"
         android:autoSizeTextType="uniform"
@@ -62,14 +62,14 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:contentDescription="@string/PushUpImg"
         android:layout_width="220dp"
         android:layout_height="141dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/PushUpImg"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/ic_pushup1" />
 
     <ImageView
@@ -96,13 +96,26 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:contentDescription="@string/PianoImg"
         android:layout_width="297dp"
         android:layout_height="177dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/PianoImg"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_piano" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-7579247174586304/3764239864"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
