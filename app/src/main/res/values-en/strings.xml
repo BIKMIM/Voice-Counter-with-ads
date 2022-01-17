@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Korean_Voice_Counter</string>
+    <string name="RESET">RESET</string>
+    <string name="ZERO">0</string>
+    <string name="Back">BACK</string>
+    <string name="Mute">MUTE</string>
+    <string name="Minus">MINUS</string>
+    <string name="Plus">PLUS</string>
+    <string name="PushUpImg">PushUpImg</string>
+    <string name="PhoneImg">PhoneImg</string>
+    <string name="PianoImg">PianoImg</string>
+    <string name="START">START</string>
+    <string name="Help">HELP</string>
+    <string name="Description">Count with Korean voice.</string>
+    <string name="Title">Korean Voice Counter</string>
+    <string name="HowtoUse">When a proximity sensor \n is detected it counts.</string>
+    <string name="HowtoUse2">Place it on the floor \n under your stomach \n and do push-ups</string>
+    <string name="HowtoUse3">" It can be used when you can't \n remember how many times you \n played the piano while practicing."</string>
+</resources>

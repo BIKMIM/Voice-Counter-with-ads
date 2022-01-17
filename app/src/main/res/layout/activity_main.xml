@@ -11,27 +11,25 @@
         android:id="@+id/tv_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
         android:text="@string/ZERO"
         android:textColor="#99000000"
         android:textSize="120sp"
-        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resetBtn" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ToggleButton
         android:id="@+id/toggleButton1"
-        android:contentDescription="@string/Mute"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/selector_button"
         android:checked="true"
+        android:contentDescription="@string/Mute"
         android:textColor="#B3FFFFFF"
         android:textOff=""
         android:textOn=""
@@ -42,10 +40,7 @@
         android:id="@+id/resetBtn"
         android:layout_width="100dp"
         android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:autoSizeMaxTextSize="20sp"
-        android:autoSizeMinTextSize="12sp"
-        android:autoSizeTextType="uniform"
+        android:layout_marginTop="8dp"
         android:background="#76C0CA"
         android:fontFamily="@font/poppins_regular"
         android:text="@string/RESET"
@@ -56,7 +51,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        tools:targetApi="o" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -68,44 +64,69 @@
         app:adUnitId="ca-app-pub-7579247174586304/3764239864"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/ivMinusBtn"
-        android:contentDescription="@string/Minus"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="40dp"
+        android:contentDescription="@string/Minus"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toStartOf="@+id/ivPlusBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_count"
         app:srcCompat="@drawable/ic_minus"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/ivPlusBtn"
-        android:contentDescription="@string/Plus"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="61dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="64dp"
+        android:contentDescription="@string/Plus"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivMinusBtn"
-        app:layout_constraintTop_toBottomOf="@+id/tv_count"
         app:srcCompat="@drawable/ic_plus"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/ivLeft1"
-        android:contentDescription="@string/Back"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/Back"
+        app:layout_constraintStart_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_left" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

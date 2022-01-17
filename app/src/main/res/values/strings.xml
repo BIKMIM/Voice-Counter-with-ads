@@ -13,4 +13,8 @@
     <string name="Help">도움말</string>
     <string name="Description">목소리로 카운트 해 줍니다.</string>
     <string name="Title">Voice Counter</string>
+    <string name="HowtoUse">폰 윗면 근접센서 5cm 이내로 \n 가까워지면 카운트 됩니다.</string>
+    <string name="HowtoUse2">배꼽 아래쪽 바닥에 놓고 \n 팔굽혀펴기를 하거나</string>
+    <string name="HowtoUse3">피아노 연습 하다가 몇 번 쳤는지 \n 기억이 안날 때 사용이 가능합니다.</string>
+
 </resources>
