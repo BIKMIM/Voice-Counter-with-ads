@@ -67,7 +67,7 @@ class WelcomeActivity : AppCompatActivity() {
 
         // 좌우로 Intent 하기 위한 함수.
         // Main 페이지로 전환
-        fun backButtonMain(v: View?) {
+        fun backButtonMain() {
             this.finish()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -75,7 +75,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
 
         // Help 페이지로 전환
-        fun backButtonHelp(v: View?) {
+        fun backButtonHelp() {
             this.finish()
             val intent = Intent(this, HelpActivity::class.java)
             startActivity(intent)
@@ -84,12 +84,12 @@ class WelcomeActivity : AppCompatActivity() {
 
         // MainActivity로 이동
         binding.startBtn.setOnClickListener {
-            backButtonMain(v = null)
+            backButtonMain()
         }
 
         // HelpActivity로 이동
         binding.helpBtn.setOnClickListener {
-            backButtonHelp(v = null)
+            backButtonHelp()
         }
     }
 }

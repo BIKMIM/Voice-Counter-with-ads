@@ -65,7 +65,7 @@ class HelpActivity : AppCompatActivity() {
 
         // 좌우로 Intent 하기 위한 함수.
         // 웰컴 페이지로 전환
-        fun backButtonWelcome(v: View?) {
+        fun backButtonWelcome() {
             this.finish()
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
@@ -75,7 +75,7 @@ class HelpActivity : AppCompatActivity() {
 
         // WelcomeActivity로 이동
         binding.ivLeft2.setOnClickListener {
-            backButtonWelcome(v = null)
+            backButtonWelcome()
         }
     }
 }
